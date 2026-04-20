@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qwen↔ChatGPT Bridge</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-left">
+        <div class="logo-icon">⚡</div>
+        <h1>LLM Bridge</h1>
+      </div>
+      <div class="status-dot" id="statusDot" title="Disconnected"></div>
+    </header>
+
+    <!-- Status Panel -->
+    <section class="status-panel">
+      <div class="status-row">
+        <span class="status-label">Session</span>
+        <span class="status-value" id="sessionId">No active session</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Last Sync</span>
+        <span class="status-value" id="lastSync">Never</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Version</span>
+        <span class="status-value" id="version">1.0.0</span>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="actions">
+      <button class="btn btn-primary" id="btnExtract" title="Extract from Qwen and send to ChatGPT">
+        <span class="btn-icon">📤</span>
+        Extract & Send
+      </button>
+      <button class="btn btn-secondary" id="btnNewSession" title="Create a new archival session">
+        <span class="btn-icon">📁</span>
+        New Session
+      </button>
+    </section>
+
+    <!-- Settings -->
+    <section class="settings">
+      <div class="setting-row">
+        <label for="authToken">Auth Token</label>
+        <div class="input-group">
+          <input type="password" id="authToken" placeholder="Enter server token…" autocomplete="off">
+          <button class="btn-icon-small" id="btnToggleToken" title="Show/hide token">👁</button>
+        </div>
+      </div>
+      <button class="btn btn-small" id="btnSaveToken">Save Token</button>
+    </section>
+
+    <!-- Error Log -->
+    <section class="error-log" id="errorLog" style="display: none;">
+      <h3>Recent Errors</h3>
+      <ul id="errorList"></ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>Qwen↔ChatGPT Bridge v1.0.0</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
